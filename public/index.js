@@ -15,7 +15,6 @@ function populateTotal() {
   // reduce transaction amounts to a single total value
   
   const total = transactions.reduce((total, t) => {
-    console.log(t.value);
     return total + parseInt(t.value);
   }, 0);
 
