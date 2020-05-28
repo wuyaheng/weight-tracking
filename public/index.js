@@ -49,7 +49,7 @@ function populateChart() {
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
   });
 
-  // create incremental values for chart
+  
   const data = reversed.map(t => {
     sum = parseInt(t.value);
     return sum;
@@ -69,6 +69,7 @@ function populateChart() {
       datasets: [
         {
           label: "Weight Over Time",
+          lineTension: 0, 
           fill: true,
           backgroundColor: "#e4be9e",
           data
@@ -83,17 +84,10 @@ function sendTransaction(isAdding) {
   const amountEl = document.querySelector("#t-amount");
   const errorEl = document.querySelector("form .error");
 
-  // validate form
-  if (nameEl.value === "" || amountEl.value === "") {
-    errorEl.textContent = "Missing Information";
-    return;
-  } else {
-    errorEl.textContent = "";
-  }
+
 
   // create record
   const transaction = {
-    name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString()
   };
@@ -126,7 +120,6 @@ function sendTransaction(isAdding) {
         errorEl.textContent = "Missing Information";
       } else {
         // clear form
-        nameEl.value = "";
         amountEl.value = "";
       }
     })
@@ -135,7 +128,6 @@ function sendTransaction(isAdding) {
       saveRecord(transaction);
 
       // clear form
-      nameEl.value = "";
       amountEl.value = "";
     });
 }

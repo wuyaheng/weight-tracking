@@ -63,3 +63,10 @@ form {
   margin: 0 auto;
 }
 
+
+@media (max-width: 768px) {
+  .note {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
