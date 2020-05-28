@@ -15,8 +15,7 @@ function populateTotal() {
   // reduce transaction amounts to a single total value
   
   const total = transactions.reduce((total, t) => {
-    console.log(t.value);
-    return total + parseInt(t.value);
+    return parseInt(t.value);
   }, 0);
 
   const totalEl = document.querySelector("#total");
@@ -52,7 +51,7 @@ function populateChart() {
 
   // create incremental values for chart
   const data = reversed.map(t => {
-    sum += parseInt(t.value);
+    sum = parseInt(t.value);
     return sum;
   });
 
