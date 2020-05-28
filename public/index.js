@@ -30,7 +30,7 @@ function populateTable() {
     // create and populate a table row
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${transaction.name}</td>
+      <td>${moment(transaction.date).format('L')}</td> 
       <td>${transaction.value}</td>
     `;
 
@@ -145,7 +145,3 @@ document.querySelector("#add-btn").addEventListener("click", function(event) {
   sendTransaction(true);
 });
 
-document.querySelector("#sub-btn").addEventListener("click", function(event) {
-  event.preventDefault();
-  sendTransaction(false);
-});

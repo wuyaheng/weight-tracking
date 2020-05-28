@@ -9,49 +9,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
-    <title>Budget Tracker</title>
+    <title>Weight Tracker</title>
   </head>
   <body>
 
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
         <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        Weight Tracking
+        Weight Tracker
       </a>
     </nav>
-    <div class="wrapper">
 
-
-
+    <div class="container-fluid">
       <div class="total">
-        <div>Your current weight is: <span id="total">0</span></div>
+        <div>Your current weight is: <span id="total">0</span> lbs</div>
       </div>
 
-      <form>
-        <label for="t-name">Transaction Name:</label>
-        <input type="text" id="t-name" placeholder="Name" />
-
-        <label for="t-amount">Transaction Amount:</label>
-        <input type="number" min="0" id="t-amount" placeholder="Amount" />
-
-        <div class="transaction-buttons">
-          <button id="add-btn"><i class="fa fa-plus"></i> Add Funds</button>
-          <button id="sub-btn">
-            <i class="fa fa-minus"></i> Subtract Funds
-          </button>
-        </div>
-        <p role="alert" class="error"></p>
+      <form class="form-inline"> 
+        <label for="t-amount">Weight:</label>
+        <input type="number" min="0" id="t-amount" placeholder="lbs"/>      
+          <button id="add-btn" class="ml-2"><i class="fa fa-plus"></i> Add</button>
       </form>
+    </div>
 
-
-
+<div class="wrapper">
       <canvas id="my-chart"></canvas>
 
       <div class="transactions">
         <table>
           <thead>
-            <th>Transaction</th>
-            <th>Amount</th>
+            <th>Date</th>
+            <th>Weight</th>
           </thead>
           <tbody id="tbody"></tbody>
         </table>
@@ -59,7 +47,7 @@
 
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="db.js"></script>
     <script src="index.js"></script>
